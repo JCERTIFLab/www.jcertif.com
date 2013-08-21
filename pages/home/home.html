@@ -1,0 +1,74 @@
+<div class="col-lg-12 container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="jbox">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h1>{{"home.news" | i18n }}</h1>
+
+                        <div class="body-back">
+                            <carousel interval="carouselInterval">
+                                <slide ng-repeat="slide in slides" active="slide.active">
+                                    <img ng-src="{{slide.image}}" width="100%">
+                                </slide>
+                            </carousel>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>&nbsp;</h3>
+                </div>
+            </div>
+            <div class="jbox">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>&nbsp;{{"home.sponsors" | i18n }}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-4 pull-left" ng-repeat="sponsor in sponsors">
+                            <a href="{{sponsor.website}}" class="thumbnail">
+                                <img ng-src="{{sponsor.logo}}" style="margin:auto;">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br/>
+        </div>
+        <div class="col-lg-3">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1>{{"home.followus" | i18n }}</h1>
+                            <div class="jbox">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <a href="https://twitter.com/jcertif" target="_blank"><img src="images/twitter-btn.png" class="pull-left l-social-img-margin"/></a>
+                                        <a href="https://plus.google.com/101565004503136979275" target="_blank"><img src="images/g+-btn.png" class="pull-left l-social-img-margin"/></a>
+                                        <a href="https://www.facebook.com/JCertif" target="_blank"><img src="images/fcbk-btn.png" class="pull-left l-social-img-margin"/></a>
+                                        <a href="http://www.youtube.com/results?search_query=jcertif" target="_blank"><img src="images/youtube-btn.png" class="pull-left l-social-img-margin"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 c-gray">
+                                    <jc-twitter></jc-twitter>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

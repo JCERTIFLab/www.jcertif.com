@@ -1,0 +1,46 @@
+<div class="col-lg-12">
+    <div ng-show="!logged">
+        <a href="#/register">{{ 'cfp.notlogged' | i18n }}</a>
+    </div>
+    <form name="cfpForm" class="form-horizontal" ng-controller="CfpCtrl" ng-show="logged">
+        <fieldset>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="jbox">
+                        <h1>{{ 'cfp.speaker' | i18n }}</h1>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="bio">{{'form.biography' | i18n}}</label>
+                            <div class="col-lg-9">
+                                <textarea id="bio" class="form-control" name="{{property}}" ng-model="user.biography" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="jbox">
+                        <h1>{{ 'cfp.paper' | i18n }}</h1>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="category">{{'form.category' | i18n}}</label>
+
+                            <div class="col-lg-9">
+                                <select id="category" name="category" class="form-control" ng-model="cfp.category">
+                                    <option value=""></option>
+                                    <option ng-repeat="cat in categories" value="{{cat.label}}">{{cat.label}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <jc-input-text input-type="title" label="'form.title'" property="title" model="cfp.title"></jc-input-text>
+                        <jc-input-text input-type="summary" label="'form.summary'" property="summary" model="cfp.summary"></jc-input-text>
+                        <jc-input-text input-type="text" label="'form.keyword'" property="keyword" model="cfp.keyword"></jc-input-text>
+                        <jc-text-area label="'form.description'" property="description" model="cfp.description"></jc-text-area>
+                    </div>
+                    <br/>
+                    <div class="control-group">
+                        <button class="btn btn-primary btn-lg pull-right" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submitCfp' | i18n}}</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <br/>
+</div>
