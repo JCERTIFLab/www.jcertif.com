@@ -1,6 +1,6 @@
 'use strict';
 
-var backendUrl = 'http://www.jcertif.backend.vm-host.net';
+var backendUrl = 'http://jcertif.backend.vm-host.net';
 var app = angular.module('jcertifWeb2013App', ['ui.bootstrap',  'ngCookies' ]);
 var googleUser = {};
 
