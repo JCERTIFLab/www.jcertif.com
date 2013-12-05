@@ -18,7 +18,6 @@ app.directive('jcMenu',  ['$location', '$rootScope', function(location, rootScop
             if(rootScope.logged) {
                 scope.menuItems = [
                     {'label': 'header.nav.home', 'url': '#/home'},
-                    {'label':"header.nav.cfp", 'url': '#/cfp'},
                     {'label':'header.nav.speakers', 'url': '#/speakers'},
                     {'label':"header.nav.sessions", 'url': '#/sessions'},
                     {'label':"header.nav.agenda", 'url': '#/agenda'},
@@ -27,8 +26,6 @@ app.directive('jcMenu',  ['$location', '$rootScope', function(location, rootScop
             } else {
                 scope.menuItems = [
                     {'label': 'header.nav.home', 'url': '#/home'},
-                    {'label': "header.nav.register", 'url': '#/register'},
-                    {'label':"header.nav.cfp", 'url': '#/cfp'},
                     {'label':'header.nav.speakers', 'url': '#/speakers'},
                     {'label':"header.nav.sessions", 'url': '#/sessions'},
                     {'label':"header.nav.agenda", 'url': '#/agenda'},
