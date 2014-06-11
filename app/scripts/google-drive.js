@@ -16,9 +16,11 @@
         '&entry.945483698=' + encodeURIComponent(data.bio) +
         '&entry.327194409=' + encodeURIComponent(data.category);
 
-      $.each(data.countries, function(country){
-        formDataUrl += '&entry.1308067311=' + encodeURIComponent(country);
-      });
+      if(data.countries) {
+        $.each(data.countries, function(country){
+          formDataUrl += '&entry.1308067311=' + encodeURIComponent(country);
+        });
+      }
 
       return formDataUrl;
     }
@@ -44,12 +46,19 @@
 
     $form = $('#cp-application-form');
 
-    console.log($form.length);
-
     function serialize(form) {
       var data = {};
-      $(form).find('input').each(function(input) {
-        data[$(input).attr('name')] = $(input).val();
+      $(form).find('input[type="text"], input[type="checkbox"]:checked, textarea').each(function(index, field) {
+
+        var val = $(field).val();
+
+        if(val === 'on') {
+          data.category = $(field).attr('name');
+        } else {
+          data[$(field).attr('name')] = val;
+        }
+
+
       });
       return data;
     }
@@ -58,7 +67,13 @@
       e.preventDefault();
 
       var data = serialize(this);
-      console.log(data);
+      GoogleDrive.post(data)
+        .then(function(response) {
+          alert('success: ' + response);
+        }, function(response) {
+          alert('error: ' + response);
+        });
+
       return false;
     });
   });
